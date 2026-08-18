@@ -1,7 +1,7 @@
 using Calculator;
 namespace Test.Calculator;
 
-public class TestCalculator
+public class CalculatorTest
 {
     [Fact]
     public void Add_TowNumbers_ShoulsReturnsCorrectResult()
@@ -32,6 +32,6 @@ public class TestCalculator
     {
         var calculator = new Calculation();
         var result = calculator.Divide(4, 2);
-        Assert.Equal(2, result);
+        Assert.Equal(2 , result);
     }
 }

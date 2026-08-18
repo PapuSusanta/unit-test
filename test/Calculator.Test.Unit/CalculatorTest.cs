@@ -1,5 +1,7 @@
 using Calculator;
-namespace Test.Calculator;
+using FluentAssertions;
+
+namespace Calculator.Test.Unit;
 
 public class CalculatorTest
 {
@@ -8,15 +10,17 @@ public class CalculatorTest
     {
         var calculator = new Calculation();
         var result = calculator.Add(1, 2);
-        Assert.Equal(3, result);
+        result.Should().Be(3);
     }
 
-    [Fact]
-    public void Subtract_TowNumbers_ShoulsReturnsCorrectResult()
+    // [Fact]
+    [Theory]
+    [InlineData(1, 2, -1)]
+    public void Subtract_TowNumbers_ShoulsReturnsCorrectResult(int a, int b, int c)
     {
         var calculator = new Calculation();
-        var result = calculator.Subtract(1, 2);
-        Assert.Equal(-1, result);
+        var result = calculator.Subtract(a, b);
+        result.Should().Be(c);
     }
 
     [Fact]
